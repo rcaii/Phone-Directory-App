@@ -5,8 +5,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
+    <script type="text/javascript" src="script.js"></script>
   </head>
+
   <body>
     <div class="margin20 textCenter flexCenter fs20">Phone Directory</div>
     <div class="textCenter flexCenter">
@@ -26,13 +27,35 @@
             class="btn"
             id="submit"
             value="Add Contact"
+            onclick="addData()"
           />
-          <div id="error" class="dn error padT10 textCenter">Invalid Input</div>
+
+          <div id="error1" class="dn error padT10 textCenter">
+            All Input boxes have to be filled
+          </div>
+          <div id="error2" class="dn error padT10 textCenter">
+            Name should contain only Alphabets and Space
+          </div>
+          <div id="error3" class="dn error padT10 textCenter">
+            Name should be less than or equal to 20 characters in length.
+          </div>
+          <div id="error4" class="dn error padT10 textCenter">
+            Mobile should be equal to 10 characters in length.
+          </div>
+          <div id="error5" class="dn error padT10 textCenter">
+            Mobile should contain Only Numbers
+          </div>
+          <div id="error6" class="dn error padT10 textCenter">
+            Email should have a proper validation (with @ )
+          </div>
+          <div id="error7" class="dn error padT10 textCenter">
+            Email should be less than 40 characters in length
+          </div>
         </div>
       </div>
       <div class="marginT40">
         <span>Search contact by Mobile No:</span>
-        <input type="text" id="search" value="" />
+        <input type="text" id="search" onkeyup="mobileInput(event)" value="" />
       </div>
       <div class="marginT40 padL10 tab cursorPtr" id="contactsSummary">
         Contacts Summary
@@ -41,18 +64,18 @@
         <table id="summaryTable">
           <thead>
             <tr>
-              <th id="nameColumn" style="cursor: pointer">Name</th>
+              <th
+                id="nameColumn"
+                style="cursor: pointer"
+                onclick="sortTable(0)"
+              >
+                Name
+              </th>
               <th>Mobile</th>
               <th>Email</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td>admin</td>
-              <td>1234567890</td>
-              <td>test@test</td>
-            </tr>
-          </tbody>
+          <tbody id="tbody"></tbody>
         </table>
         <div id="noResult" class="noResult dn">No Results Found</div>
       </div>
