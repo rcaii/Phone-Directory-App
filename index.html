@@ -27,7 +27,7 @@
             class="btn"
             id="submit"
             value="Add Contact"
-            onclick="addData()"
+            onclick="Controller.addData()"
           />
 
           <div id="error1" class="dn error padT10 textCenter">
@@ -46,7 +46,7 @@
             Mobile should contain Only Numbers
           </div>
           <div id="error6" class="dn error padT10 textCenter">
-            Email should have a proper validation (with @ )
+            Email should have a proper validation (with @)
           </div>
           <div id="error7" class="dn error padT10 textCenter">
             Email should be less than 40 characters in length
@@ -55,7 +55,12 @@
       </div>
       <div class="marginT40">
         <span>Search contact by Mobile No:</span>
-        <input type="text" id="search" onkeyup="mobileInput(event)" value="" />
+        <input
+          type="text"
+          id="search"
+          onkeyup="Controller.mobileSearch(event)"
+          value=""
+        />
       </div>
       <div class="marginT40 padL10 tab cursorPtr" id="contactsSummary">
         Contacts Summary
@@ -67,7 +72,7 @@
               <th
                 id="nameColumn"
                 style="cursor: pointer"
-                onclick="sortTable(0)"
+                onclick="Controller.sortTable(0)"
               >
                 Name
               </th>
